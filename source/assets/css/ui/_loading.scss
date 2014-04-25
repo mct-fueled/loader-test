@@ -2,6 +2,10 @@
    Loading
 ========================================================================== */
 
+/* ==|== Loading =================
+   Layouts
+====================================== */
+
 .loading {
 	//background:rgba($color-fueled-black, 0.2);
 	height:100%;
@@ -39,27 +43,27 @@
 	font-size:14px;
 	font-weight: bold;
 	line-height:1;
-	margin-top: -62px;
+	margin-top: -56px;
 	left:0;
 	letter-spacing:.4em;
 	opacity:0;
-	perspective: 75px;
 	position: absolute;
 	text-align: center;
 	text-transform: uppercase;
 	top:50%;
 	transition: all .35s cubic-bezier(#{$bezier-nice});
+	transform: scale(0);
 	width:100%;
 
 	img {
 		height: 112px;
 		width:112px;
 	}
-
-	span {
-		display: block;
-	}
 }
+
+/* ==|== Loading =================
+   Load In Animations
+====================================== */
 
 @keyframes loaderBack {
 	0% {
@@ -73,7 +77,6 @@
 }
 
 .show-loading  {
-	overflow: hidden;
 
 	.loading {
 		visibility: visible;
@@ -85,12 +88,13 @@
 
 	.loading__text {
 		opacity:1;
-
-		img {
-			animation: loaderBack .629s infinite alternate cubic-bezier(#{$bezier-sine}) both;
-		}
+		transform:scale(4);
 	}
 }
+
+/* ==|== Loading =================
+   Load out Animations
+====================================== */
 
 .hide-loading {
 
@@ -100,5 +104,6 @@
 
 	.loading__text {
 		opacity:0;
+		transform:scale(0);
 	}
 }

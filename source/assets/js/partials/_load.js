@@ -14,9 +14,11 @@ g.load = function() {
 			// 	return $(this).attr('href').replace(g.url.baseURL, '').replace(/^#/, '');
 			// });
 			$(document).on('click', '[data-js="load-page"]', function(e) {
+				var t = $(this);
 
-				$.address.loadType($(this).attr('data-js-type'));
-				$.address.value($(this).attr('href'));
+				$.address.loadType(t.attr('data-js-type'));
+				$.address.value(t.attr('href'));
+
 				e.preventDefault();
 
 			});
@@ -44,8 +46,8 @@ g.load = function() {
 
 
 	self.requestPage = function(url) {
-		$('html').addClass('show-loading');
 
+		$('html').addClass('show-loading');
 		$('.loading__element').afterTransition(function() {
 
 			$('.main').load(url + ' .main > *', function(data) {
@@ -58,6 +60,7 @@ g.load = function() {
 				});
 			});
 		});
+
 	};
 
 	return g;
