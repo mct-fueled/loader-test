@@ -1,0 +1,19 @@
+/* =============================================================================
+   Header
+========================================================================== */
+
+header {
+	background:$color-black;
+	color:$color-white;
+	left:0;
+	padding:.5em 0;
+	position: fixed;
+	text-align: center;
+	top:0;
+	width:100%;
+	z-index:101;
+}
+
+body {
+	padding-top: 2.5em;
+}

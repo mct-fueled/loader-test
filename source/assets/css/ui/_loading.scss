@@ -1,0 +1,104 @@
+/* =============================================================================
+   Loading
+========================================================================== */
+
+.loading {
+	//background:rgba($color-fueled-black, 0.2);
+	height:100%;
+	left:0;
+	position: fixed;
+	top:0;
+	visibility: hidden;
+	width:100%;
+	z-index:100;
+}
+
+.loading__element {
+	//background:lighten($color-black, 5%);
+	background:#ae0000;
+	left:50%;
+	margin:-7.5% 0 0 -7.5%;
+	padding-top: 15%;
+	position: fixed;
+	top:50%;
+	transform:rotate(45deg) scale(0);
+	transition: all .35s cubic-bezier(#{$bezier-nice});
+	width:15%;
+}
+
+@include aspect-ratio(8, 10) {
+	.loading__element {
+		padding-top: 30%;
+		width:30%;
+	}
+}
+
+.loading__text {
+	color:$color-white;
+	display: block;
+	font-size:14px;
+	font-weight: bold;
+	line-height:1;
+	margin-top: -62px;
+	left:0;
+	letter-spacing:.4em;
+	opacity:0;
+	perspective: 75px;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+	top:50%;
+	transition: all .35s cubic-bezier(#{$bezier-nice});
+	width:100%;
+
+	img {
+		height: 112px;
+		width:112px;
+	}
+
+	span {
+		display: block;
+	}
+}
+
+@keyframes loaderBack {
+	0% {
+		transform:rotateX(0) rotateY(0) rotateZ(0);
+
+	}
+
+	100% {
+		transform:rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+	}
+}
+
+.show-loading  {
+	overflow: hidden;
+
+	.loading {
+		visibility: visible;
+	}
+
+	.loading__element {
+		transform:rotate(45deg) scale(12);
+	}
+
+	.loading__text {
+		opacity:1;
+
+		img {
+			animation: loaderBack 1s infinite cubic-bezier(#{$bezier-sine}) both;
+		}
+	}
+}
+
+.hide-loading {
+
+	.loading__element {
+		transform:rotate(45deg) scale(0);
+	}
+
+	.loading__text {
+		opacity:0;
+	}
+}
