@@ -63,12 +63,12 @@
 
 @keyframes loaderBack {
 	0% {
-		transform:rotateX(0) rotateY(0) rotateZ(0);
+		transform:rotateX(0deg) rotateY(0) rotateZ(0) translateX(-27px);
 
 	}
 
 	100% {
-		transform:rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+		transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(27px);
 	}
 }
 
@@ -87,7 +87,7 @@
 		opacity:1;
 
 		img {
-			animation: loaderBack 1s infinite cubic-bezier(#{$bezier-sine}) both;
+			animation: loaderBack .629s infinite alternate cubic-bezier(#{$bezier-sine}) both;
 		}
 	}
 }
