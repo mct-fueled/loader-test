@@ -3,8 +3,8 @@
 ============================================================================== */
 
 $color-link-primary: #ae0000;
-$color-link-primary-hover: #00ae00;
-$color-link-primary-active: #0000ae;
+$color-link-primary-hover: #fff;
+$color-link-primary-active: #525252;
 
 /* ==|== Links =================
 	Primary
@@ -23,4 +23,10 @@ a {
 	&:focus {
 		color:$color-link-primary-active;
 	}
+}
+
+.page--index .link--index,
+.page--about .link--about,
+.page--contact .link--contact {
+	color:$color-link-primary-hover;
 }

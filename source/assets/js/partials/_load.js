@@ -52,6 +52,10 @@ g.load = function() {
 
 			$('.main').load(url + ' .main > *', function(data) {
 
+				var meta = self.getTitleAndClasses(data);
+				document.title = meta.title;
+				$('body').attr('class', meta.classes);
+
 				$('html').addClass('hide-loading');
 
 				$('.loading__element').afterTransition(function() {
@@ -61,6 +65,13 @@ g.load = function() {
 			});
 		});
 
+	};
+
+	self.getTitleAndClasses = function getTitleAndClasses(data) {
+		var o = {}
+		o['title'] = data.match("<title>(.*?)</title>")[1];
+		o['classes'] = /body([^>]*)class=(["']+)([^"']*)(["']+)/gi.exec(data.substring(data.indexOf("<body"), data.indexOf("</body>") + 7))[3];
+		return o;
 	};
 
 	return g;

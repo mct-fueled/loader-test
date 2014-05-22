@@ -20,9 +20,13 @@
 	<%= javascript_include_tag  "modernizr/modernizr-2.6.2.min" %>
 </head>
 
-<body class="<%= page_classes %>">
+<body class="<%= page_classes %> <%= data.page.classes %>">
 
-	<header>THIS IS THE HEADER</header>
+	<header>
+		<a href="<%= settings.directory %>" class="link--index" data-js="load-page">Home</a>
+		<a href="<%= settings.directory %>about/" class="link--about" data-js="load-page">About</a>
+		<a href="<%= settings.directory %>contact/" class="link--contact" data-js="load-page">Contact</a>
+	</header>
 	<div class="main">
 		<%= yield %>
 	</div>
